@@ -3,47 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Awesome Website</title>
+    <title>The Official Internet Home of [Your Name], World's Okayest Human</title>
     <style>
+        /* --- CORE STYLES & RESET --- */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', 'Courier New', sans-serif; /* Humorous, unprofessional choice */
+            background-color: #ffe066; /* Aggressively bright yellow */
+            color: #333;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 { text-transform: uppercase; letter-spacing: -1px; }
+
+        /* --- STUPID ICONS & LAYOUT --- */
+        .icon {
+            font-size: 3rem;
+            display: inline-block;
+            animation: wobbly 2s infinite linear;
+        }
+
+        @keyframes wobbly {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            75% { transform: rotate(-5deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        header {
+            background-color: #ff6b6b; /* Clashing Red */
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 10px dashed #333;
+        }
+
+        nav {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            background: #333;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        nav a:hover { transform: scale(1.2) rotate(5deg); background: #ff9f43; }
+
+        section {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 40px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 20px;
+            box-shadow: 10px 10px 0px #333;
+        }
+
+        /* --- THE GOOF SQUAD (CHARACTER ANIMATION) --- */
+        #goof-squad-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 250px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            pointer-events: none; /* Mouse passes through them to the content */
+            z-index: 1000;
+        }
+
+        .goof-char {
+            width: 150px;
+            height: 200px;
+            background-color: #4ecdc4; /* Tealy Blue */
+            border: 5px solid #333;
+            border-radius: 50px 50px 10px 10px;
+            position: relative;
+            transform-origin: bottom center; /* Pivot from the feet */
+            transition: transform 0.1s ease-out; /* Smooth body tilt */
+        }
+
+        /* Goofy Eyes */
+        .eye {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            border: 4px solid #333;
+            position: absolute;
+            top: 40px;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .eye.left { left: 25px; }
+        .eye.right { right: 25px; }
+
+        .pupil {
+            width: 15px;
+            height: 15px;
+            background: #333;
+            border-radius: 50%;
+            transition: transform 0.05s linear; /* Fast pupil movement */
+        }
+
+        /* Unique character attributes */
+        .goof-char:nth-child(2) { background-color: #ff9f43; border-radius: 50%; width: 180px; height: 180px; }
+        .goof-char:nth-child(2) .eye { top: 60px; }
+        .goof-char:nth-child(3) { background-color: #ab83e2; width: 120px; height: 220px; }
+
+        /* --- CONTENT SECTIONS --- */
+        #achievements ul { list-style: none; padding: 0; }
+        #achievements li { margin-bottom: 20px; font-size: 1.2rem; }
+        .achievement-icon { margin-right: 10px; }
+
+        #contact button {
+            background: #ff6b6b;
             color: white;
+            border: 4px solid #333;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        #contact button:hover { background: #333; transform: translate(5px, 5px); }
+
+        footer {
             text-align: center;
+            padding: 30px;
+            background: #333;
+            color: #ccc;
+            margin-top: 100px;
         }
-        .container {
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        }
-        h1 { font-size: 3rem; margin-bottom: 0.5rem; }
-        p { font-size: 1.2rem; opacity: 0.9; }
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 25px;
-            background: white;
-            color: #764ba2;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .btn:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Hello, World!</h1>
-        <p>My new website is coming soon.</p>
-        <a href="https://github.com" class="btn">View My Work</a>
+
+<div id="goof-squad-container">
+    <div class="goof-char" id="char1">
+        <div class="eye left"><div class="pupil"></div></div>
+        <div class="eye right"><div class="pupil"></div></div>
     </div>
+    <div class="goof-char" id="char2">
+        <div class="eye left"><div class="pupil"></div></div>
+        <div class="eye right"><div class="pupil"></div></div>
+    </div>
+    <div class="goof-char" id="char3">
+        <div class="eye left"><div class="pupil"></div></div>
+        <div class="eye right"><div class="pupil"></div></div>
+    </div>
+</div>
+
+<header>
+    <h1><span class="icon">🤪</span> Welcome to the Internet Home of [Your Name]! <span class="icon">🤪</span></h1>
+    <p>I build websites, I eat cereal, I try not to crash into things. Usually successful.</p>
+    <nav>
+        <a href="#about">About Me?</a>
+        <a href="#achievements">Stupid Accolades</a>
+        <a href="#contact">Threaten Me</a>
+    </nav>
+</header>
+
+<main>
+    <section id="about">
+        <h2>About Me (The Honest Version) <span class="icon">🤔</span></h2>
+        <p>Hi, I'm [Your Name]. According to my digital footprint, I am a sentient human who enjoys long walks to the refrigerator and optimized CSS grid layouts. I have approximately 14 years of experience being alive and am currently exploring the exciting world of "Making Goofy Icons Move with My Mouse."</p>
+        <p>My code is guaranteed to be 100% bugs, which are actually 'unannounced features.' This entire website is a testament to what happens when you drink too much coffee and get access to GitHub Pages.</p>
+    </section>
+
+    <section id="achievements">
+        <h2>My Totally Real Achievements <span class="icon">🏆</span></h2>
+        <ul>
+            <li>
+                <span class="achievement-icon icon">🐔</span>
+                <strong>2024 - 'Most Likely to Order the Same Thing Again' Award</strong><br>
+                Selected by a panel of tired waiters.
+            </li>
+            <li>
+                <span class="achievement-icon icon">💾</span>
+                <strong>2023 - Mastered 'Ctrl+C' and 'Ctrl+V'</strong><br>
+                The foundations of all modern engineering.
+            </li>
+            <li>
+                <span class="achievement-icon icon">🧱</span>
+                <strong>2022 - 'Successfully Built an HTML Page that Didn't Implode'</strong><br>
+                This was a close one, but we made it.
+            </li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me? <span class="icon">☎️</span></h2>
+        <p>If you wish to praise my genius, offer me a large sum of money for no reason, or (more likely) complain about how bright this yellow background is, click the button below.</p>
+        <p style="opacity:0.5; font-size:0.8rem;">(Warning: This button doesn't actually do anything. It's decorative.)</p>
+        <button onclick="alert('I told you it was decorative!')">SEND COMPLAINT</button>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 [Your Name]. All Rights Reserved, Including the Right to Be Sarcastic.</p>
+    <p>Site Hosted on GitHub (They cannot stop me).</p>
+</footer>
+
+<script>
+    /* --- THE INTERACTIVE MAGIC --- */
+    const characters = document.querySelectorAll('.goof-char');
+    const pupils = document.querySelectorAll('.pupil');
+
+    document.addEventListener('mousemove', (e) => {
+        // Get Mouse Coordinates
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+
+        // 1. Move Pupils
+        pupils.forEach(pupil => {
+            // Get eye center (needed because each eye is in a different position)
+            const eyeRect = pupil.parentElement.getBoundingClientRect();
+            const eyeCenterX = eyeRect.left + eyeRect.width / 2;
+            const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+
+            // Calculate angle between mouse and eye center
+            const angle = Math.atan2(mouseY - eyeCenterY, mouseX - eyeCenterX);
+
+            // Distance the pupil should move (max distance)
+            const distance = 8; // Small movement looks best
+            const pupilX = Math.cos(angle) * distance;
+            const pupilY = Math.sin(angle) * distance;
+
+            // Apply the movement
+            pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+        });
+
+        // 2. Tilt Bodies
+        characters.forEach(char => {
+            const charRect = char.getBoundingClientRect();
+            const charCenterX = charRect.left + charRect.width / 2;
+            
+            // Calculate how far the mouse is horizontally from the character
+            const distPercentX = (mouseX - charCenterX) / (window.innerWidth / 2);
+
+            // Max tilt angle (degrees)
+            const maxTilt = 15; 
+            const tiltAngle = distPercentX * maxTilt;
+
+            // Apply the body tilt (negative tilt leans toward the mouse)
+            char.style.transform = `rotate(${tiltAngle}deg)`;
+        });
+    });
+</script>
+
 </body>
 </html>
